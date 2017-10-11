@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package com.bss.protobuff.dept;
+
+option java_package = "com.bss.protobuff.dept";
+option java_outer_classname = "DepartmentProto";
+
+message Integer {
+	int32 value = 1;
+}
+
+enum PGenre {
+	Educational = 0;
+	Romantic = 1;
+	Thriller = 2;
+}
+
+enum PSubject {
+	English = 0;
+	History = 1;
+	Geology = 2;
+	Maths = 3;
+	Chemistry = 4;
+	Geometry = 5;
+}
+
+message PStudent {
+	Integer studentId = 1;
+	string studentName = 2;
+	string address = 3;
+	PSubject favSubject = 4;
+}
+
+message PBook {
+	string bookId = 1;
+	string authorId = 2;
+	string authorDesc = 3;
+	PGenre genre = 4;
+}
+
+message PDepartment {
+	string departmentName = 1;
+	string departmentTag = 2;
+	Integer departmentId = 3;
+	repeated PBook books = 4;
+	repeated PStudent students = 5;	
+}
